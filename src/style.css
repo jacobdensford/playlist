@@ -1,0 +1,18 @@
+#pri-form form {
+    display: flex;
+    flex-direction: column;
+}
+#pri-form label {
+    display: flex;
+    flex-direction: column;
+}
+#pri-form .input-range {
+    display:flex;
+}
+#pri-form .current-value {
+    font-size: 0.8em;
+    color: #00000055;
+}
+#pri {
+    font-weight: bold;
+}

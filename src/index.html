@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./index.js"></script>
+</head>
+<body>
+
+    <div id="pri-form">
+        <form action="">
+            <label for="community-score">
+                Community Score
+                <div class="input-range">
+                    <span>50 </span>
+                    <input type="range" id="community-score" name="community-score" min="50" max="100" step="1" value="75">
+                    <span>100</span>
+                </div>
+                <span id="current-score" class="current-value">0</span>
+            </label>
+            <label for="fit-modifier">
+                Fit Modifier
+                <div class="input-range">
+                    <span>-30</span>
+                    <input type="range" name="fit-modifier" id="fit-modifier" min="-30" max="30" step="5" value="0">
+                    <span>30</span>
+                </div>
+                <span id="current-fit" class="current-value">0</span>
+            </label>
+            <label for="trust-multiplier">
+                Trust Multiplier
+                <div class="input-range">
+                    <span>0.0</span>
+                    <input type="range" name="trust-multiplier" id="trust-multiplier" min="0.0" max="2.0" step="0.1" value="1.0">
+                    <span>2.0</span>
+                </div>
+                <span id="current-trust" class="current-value">1</span>
+            </label>
+        </form>
+        <div id="pri">PRI: ?</div>
+    </div>
+
+</body>
+</html>
