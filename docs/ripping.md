@@ -19,6 +19,8 @@ See the man page and the [archlinux wiki dvdbackup page](https://wiki.archlinux.
 
 - Run `dvdbackup -i <drive> -o <output dir> -M -p` to rip the whole disk
 
+Input drive should be `/dev/sr0` or `/dev/dvd`.
+
 ### HandBrakeCLI
 
 *See `HandBrakeCLI --help` (or the [HandBrake command line reference](https://handbrake.fr/docs/en/latest/cli/command-line-reference.html)) and [Cli Options](https://handbrake.fr/docs/en/latest/cli/cli-options.html) for more details.*
@@ -63,8 +65,6 @@ ffprobe -v error \
 ```
 
 **Note:** to specifically confirm detelecine/decomb worked (no residual judder or combing), also run `ffmpeg -filter:v idet -frames:v 300 -an -f null -i "The Fast and the Furious (2001).mkv"`, which reports counts of progressive vs. interlaced (TFF/BFF) frames.
-
-As always, refer to the documentation (`HandBrakeCLI -help`) for anything unclear.
 
 **Review note (2026-07-31):** the core codec/quality choices above (mkv, x265 CQ ~20, `--comb-detect`+`--decomb`, `--markers`, `--main-feature`) are in line with common community practice for DVD rips. A few gaps worth keeping in mind for Jellyfin cross-device compatibility with minimal transcoding: (1) black bars on widescreen DVDs are already handled — HandBrake's `--crop-mode` defaults to `auto` (crops automatically) even though the command never sets it explicitly, but this isn't foolproof, so if a scan or the output still looks letterboxed, override with `--crop-mode conservative` or an explicit `--crop top:bottom:left:right`; (2) `--detelecine` and `--audio-fallback ac3` are mentioned above only as prose asides, not in the actual runnable command block, so copy-pasting the block as-is misses them; (3) `--aencoder copy` alone has no fallback for clients that can't direct-play the source codec (DTS, or AC3 on some web/Safari clients) — the `copy:ac3,av_aac` pattern described above for customizing audio tracks is worth making the default rather than an optional tweak, so 5.1 AC3 passthrough stays available for receivers while an AAC stereo track covers browsers/mobile without a server-side transcode; (4) `--all-subtitles` will include the DVD's VOBSUB (image-based) tracks, which most non-desktop Jellyfin clients can't render without a burn-in transcode, so it's worth narrowing to the tracks actually wanted; (5) x265 is a fine default, but its compression advantage over x264 is much smaller at DVD (480i/576i) resolution than at 1080p/4K, so x264 remains the safer choice specifically for older or embedded hardware that lacks HEVC decode support.
 
