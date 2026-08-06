@@ -4,14 +4,21 @@
 
 - [Blu-ray.com](https://www.blu-ray.com/)
 - [DVDBeaver](http://www.dvdbeaver.com/)
+- [shotonwhat](https://shotonwhat.com/)
 - [DISCAPE](https://www.discape.ca/)
 - [rewind @ dvdcompare.net](https://dvdcompare.net/)
+- [K.D. Kemp’s Complete Guide to Collecting Physical Media](https://kdkemp.com/pmg)
 
 ## Buying
 
 - [GRUV](https://gruv.com/)
 - [Barnes & Noble](https://www.barnesandnoble.com/)
 - [Walmart](https://www.walmart.com/)
+- [Hamilon Book](https://www.hamiltonbook.com/)
+- [Atomic Movie Store](https://www.atomicmoviestore.com/)
+- [Deep Discount](https://www.deepdiscount.com/)
+- [Criterion](https://www.criterion.com/)
+- [Vinted](https://www.vinted.com/)
 
 ### DVD or Blu-Ray
 
