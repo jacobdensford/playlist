@@ -35,19 +35,18 @@ HandBrakeCLI \
   --main-feature \
   -o "The Fast and the Furious (2001).mkv" \
   -f av_mkv \
-  -e x265 \
+  -e x264 \
   -q 20 \
   --encoder-preset medium \
   --encoder-profile main \
   --comb-detect \
   --decomb \
+  --detelecine \
   --markers \
   --all-audio \
   --aencoder copy \
   --all-subtitles
 ```
-
-**Note:** `--comb-detect`/`--decomb` only fix interlacing — most NTSC movie DVDs are actually telecined (24fps film via 3:2 pulldown), which decomb doesn't undo. Add `--detelecine` alongside them (bare, using its defaults) to restore the true progressive framerate on those discs; it only acts on frames it identifies as telecined, so it's safe to include by default. Also consider adding `--audio-fallback ac3` (or similar) so `--aencoder copy` doesn't hard-fail on a track that can't be passed through.
 
 To customize audio tracks, use `--audio <track #>` instead of `--all-audio`, separating desired track numbers with a comma (`1,3,4`). For 5.1, usually include the ac3 track (most compatible 5.1). For stereo and compatibility, aac. If one or both formats aren't available, modify `--aencoder copy` to something like (depending on track numbers—this command maps to the `--audio` command, so you may change it to `--audio 1,1` for example) `--aencoder copy:ac3,av_aac`, `--ab 448,192`  and add something like `--mixdown 5point1,stereo`.
 
